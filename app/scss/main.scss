@@ -1,0 +1,22 @@
+@import 'reset';
+@import './components/form';
+@import './components/addbar';
+
+* {
+  box-sizing: border-box;
+}
+
+body, html, #app {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  transition: 280ms all;
+  font-family: 'brandon-grotesque', 'helvetica', sans-serif;
+}
+
+form {
+  height: 100%;
+}
+
