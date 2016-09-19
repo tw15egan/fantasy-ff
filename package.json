@@ -26,6 +26,7 @@
     "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.8.0",
     "react-radio-group": "^3.0.1",
+    "reactable": "^0.14.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",

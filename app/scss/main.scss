@@ -1,5 +1,5 @@
 @import 'reset';
-@import './components/form';
+@import './components/players';
 @import './components/addbar';
 
 * {
@@ -14,6 +14,7 @@ body, html, #app {
 body {
   transition: 280ms all;
   font-family: 'brandon-grotesque', 'helvetica', sans-serif;
+  padding: 1rem;
 }
 
 form {

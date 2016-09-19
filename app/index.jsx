@@ -11,6 +11,7 @@ class App extends React.Component {
     
     this.state = {
       players: {},
+      filtered: false,
     }
   }
   
@@ -22,17 +23,28 @@ class App extends React.Component {
     })
   }
   
+  deletePlayer(player) {
+    delete this.state.players[player];
+    this.setState({
+      players: this.state.players
+    })
+  }
+  
   renderPlayer(item) {
     let player = this.state.players[item];
-    return (
-      <Player 
-        key={item}
-        name="TJ"
-        position={player.position}
-        league={player.league}
-        team={player.team}
-      />
-    )
+    if (!this.state.filtered) {
+      return (
+        <Player 
+          key={item}
+          value={item}
+          name="TJ"
+          position={player.position}
+          league={player.league}
+          team={player.team}
+          deletePlayer={this.deletePlayer.bind(this)}
+        />
+      )
+    } 
   }
   
   render() {
@@ -40,9 +52,20 @@ class App extends React.Component {
     return (
       <div className="container">
         <AddBar addPlayer={this.addPlayer.bind(this)} />
-        <ul className="players">
-          {Object.keys(this.state.players).map(this.renderPlayer.bind(this))}
-        </ul>
+        <table className="players">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>League</th>
+              <th>Team</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(this.state.players).map(this.renderPlayer.bind(this))}
+          </tbody>
+        </table>
       </div>
         
     )

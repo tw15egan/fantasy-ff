@@ -12,17 +12,20 @@ export default class Player extends React.Component {
     }
   }
   
-  
-  
+  handleDelete() {
+    this.props.deletePlayer(this.props.value);
+  }
+
   render() {
    
     return (
-        <div className="card">
-          <p className="card__name">{this.state.name}</p>
-          <p className="card__position">{this.state.position}</p>
-          <p className="card__league">{this.state.league}</p>
-          <p className="card__team">{this.state.team}</p>
-        </div>
+        <tr className="card">
+          <td className="card__name">{this.state.name}</td>
+          <td className="card__position">{this.state.position}</td>
+          <td className="card__league">{this.state.league}</td>
+          <td className="card__team">{this.state.team}</td>
+          <td className="card__delete" onClick={this.handleDelete.bind(this)}>x</td>
+        </tr>
     )
   }
 }
